@@ -1,2 +1,2 @@
 # statistics
-Statistik Projekt JPG
+statistics project jpg
