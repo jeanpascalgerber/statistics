@@ -1,4 +1,4 @@
-# Aurora Forecast Pro - Analyse und Vorhersage geomagnetischer Stuerme
+# Aurora Forecast Pro - Analyse und Vorhersage geomagnetischer Stürme
 
 Dieses Repository beinhaltet die Projektarbeit im Modul Statistik 2. Das Projekt untersucht die Vorhersagbarkeit von geomagnetischen Stuermen basierend auf Sonnenwind-Parametern mithilfe von Machine Learning Methoden.
 
