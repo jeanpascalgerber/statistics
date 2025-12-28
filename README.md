@@ -24,7 +24,7 @@ Der Code ist in zwei Hauptkomponenten unterteilt:
 **1. Repository klonen**
 Laden Sie das Repository auf Ihren lokalen Rechner.
 
-**2. Abhaengigkeiten installieren**
+**2. Abhängigkeiten installieren**
 Navigieren Sie in den Ordner `data` und installieren Sie die benoetigten Bibliotheken (oder nutzen Sie die Installation im Notebook):
 ```bash
 pip install streamlit pandas numpy scikit-learn plotly requests urllib3
