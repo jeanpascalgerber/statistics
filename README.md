@@ -1,6 +1,6 @@
-# Aurora Forecast Pro - Analyse und Vorhersage geomagnetischer Stürme
+# Chasing the Lights - Analyse und Vorhersage geomagnetischer Stürme
 
-Dieses Repository beinhaltet die Projektarbeit im Modul Statistik 2. Das Projekt untersucht die Vorhersagbarkeit von geomagnetischen Stuermen basierend auf Sonnenwind-Parametern mithilfe von Machine Learning Methoden.
+Dieses Repository beinhaltet die Projektarbeit im Modul Statistik 2. Das Projekt untersucht die Vorhersagbarkeit von geomagnetischen Stürmen basierend auf Sonnenwind-Parametern mithilfe von Machine Learning Methoden.
 
 ## Projektstruktur und Abgabe
 
@@ -12,7 +12,7 @@ Der Code ist in zwei Hauptkomponenten unterteilt:
     * Zeigt die explorative Datenanalyse.
     * Dokumentiert das Training und die Evaluation des Random Forest Modells.
 
-2.  **Dashboard Applikation (Python Skript):**
+2.  **Dashboard Applikation "Aurora Forecast Pro" (Python Skript):**
     Pfad: **`data/app.py`**
     * Beinhaltet den Code für das interaktive Streamlit-Dashboard.
     * Verbindet das Modell mit Live-Daten der NOAA.
@@ -26,6 +26,7 @@ Laden Sie das Repository auf Ihren lokalen Rechner.
 
 **2. Abhängigkeiten installieren**
 Navigieren Sie in den Ordner `data` und installieren Sie die benoetigten Bibliotheken (oder nutzen Sie die Installation im Notebook):
+
 ```bash
 pip install streamlit pandas numpy scikit-learn plotly requests urllib3
 
@@ -36,7 +37,7 @@ pip install streamlit pandas numpy scikit-learn plotly requests urllib3
 Bash
 streamlit run app.py
 
-Methodik
+Methodik:
 Datenbasis: NASA OMNIWeb Datensatz (Datei: omni_data.txt, im Repository enthalten).
 
 Modell: Random Forest Classifier (Scikit-learn).
