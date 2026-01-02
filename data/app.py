@@ -182,10 +182,30 @@ if not model:
     st.error("DATABASE ERROR: omni_data.txt NOT FOUND")
     st.stop()
 
-# -----------------------------------------------------------------------------
+# # -----------------------------------------------------------------------------
 # 5. INITIALIZATION
 # -----------------------------------------------------------------------------
 telemetry = get_live_telemetry()
+
+# Sanity Check
+# Wir prüfen, ob die Sensoren "Quatsch" (9999) senden, bevor das Modell es sieht.
+if telemetry['status'] == 'ONLINE':
+    # 1. Speed Check (Werte über 2000 km/s sind physikalisch fast unmöglich)
+    if telemetry['speed'] > 2000 or telemetry['speed'] < 0:
+        telemetry['speed'] = 400.0 # Reset auf ruhigen Standardwert
+        st.toast("⚠️ Sensor-Fehler korrigiert: Speed > 2000 km/s", icon="🔧")
+    
+    # 2. Density Check (Werte über 100 sind meist Fehler)
+    if telemetry['density'] > 100 or telemetry['density'] < 0:
+        telemetry['density'] = 5.0
+        st.toast("⚠️ Sensor-Fehler korrigiert: Density unplausibel", icon="🔧")
+        
+    # 3. Bz Check (Werte über 100 nT sind Fehler)
+    if abs(telemetry['bz']) > 100:
+        telemetry['bz'] = 0.0
+        st.toast("⚠️ Sensor-Fehler korrigiert: Bz > 100 nT", icon="🔧")
+# --- SANITY CHECK ENDE ---
+
 is_online = telemetry['status'] == 'ONLINE'
 
 if is_online:
@@ -263,7 +283,7 @@ with col_L:
     
     real_kp = current.get('kp', 0.0)
     st.metric("NOAA GROUND TRUTH", f"{real_kp:.2f}", "KP")
-    st.caption(f"CONFIDENCE: {score:.1%} | ALGORITHM: Random Forest")
+    st.caption(f"MODEL ACCURACY: {score:.1%} | ALGORITHM: Random Forest")
 
 with col_R:
     # HIER IST DAS NEUE FEATURE: TABS
